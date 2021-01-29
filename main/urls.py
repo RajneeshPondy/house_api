@@ -4,7 +4,9 @@ from django.urls import path, include
 
 from users import router as users_api_router
 
-auth_api_url = []
+auth_api_url = [
+    path('', include('rest_framework_social_oauth2.urls')),
+    ]
 
 if settings.DEBUG:
     auth_api_url.append(path("verify/", include("rest_framework.urls")))
