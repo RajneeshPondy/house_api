@@ -14,3 +14,14 @@ def create_user_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
         logger.info(f"Profile has been created for user : {instance.username}")
+
+
+@receiver(pre_save, sender=User)
+def set_username(sender, instance, **kwargs):
+    username = f"{instance.first_name}_{instance.last_name}".lower()
+
+    counter = 1
+    while User.objects.filter(username=username):
+        username = f"{instance.first_name}_{instance.last_name}_{counter}".lower()
+        counter += 1
+    instance.username = username
