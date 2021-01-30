@@ -5,6 +5,7 @@ from django.conf.urls.static import static
 
 
 from users import router as users_api_router
+from house import router as house_api_router
 
 auth_api_url = [
     path('', include('rest_framework_social_oauth2.urls')),
@@ -16,6 +17,7 @@ if settings.DEBUG:
 api_url_patterns = [
     path("accounts/", include(users_api_router.router.urls)),
     path("auth/", include(auth_api_url)),
+    path('house/', include(house_api_router.router.urls)),
 ]
 
 urlpatterns = [
