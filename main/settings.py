@@ -27,10 +27,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'users',
     'oauth2_provider',
     'social_django',
     'rest_framework_social_oauth2',
+
+    # User Created Apps
+    'users',
+    'house',
 ]
 
 MIDDLEWARE = [
