@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     # User Created Apps
     'users',
     'house',
+    'task',
 ]
 
 MIDDLEWARE = [
